@@ -1,16 +1,13 @@
-
-
-
-frase_usuario = input("Ingrese una frase: ")
-letra_usuario = input("Ingrese una letra: ")
+phrase = input("Ingrese una frase: ")
+sample = input("Ingrese una letra: ")
 
 count = 0
 
-for i in range(len(frase_usuario)):
+for char in phrase:
+    if char == sample:
+        count += 1
 
-    if frase_usuario[i] == letra_usuario:
-        frase_usuario[i]
-        count = count + 1
-
-
-print("La letra " + letra_usuario + " aprece " + str(count) + " en la frase.")
+print(
+    "La letra '{}' aprece {} veces en la frase.".format(
+        sample, count)
+    )

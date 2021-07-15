@@ -1,22 +1,9 @@
+num = int(input("Ingrese un número entero: "))
 
-
-numero_usuario = int(input("Ingrese un número entero: "))
-
-
-for i in range(numero_usuario+1):
+for i in range(num+1):
     if i%2 != 0:
-        a = i+1
-        for c in range(i+1):
-
+        line = ""
+        for c in range(i+1, 0, -1):
             if c%2 != 0:
-
-                if c != i:
-                    print(str(a), end = " ")
-                else:
-                    print(str(a))
-
-            a = a - 1
-
-
-
-
+                line += "{} ".format(c)
+        print(line)

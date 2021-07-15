@@ -1,12 +1,4 @@
+userAge = int(input("Ingrese su edad: "))
 
-
-
-
-edad_usuario = int(input("Ingrese su edad: "))
-
-for i in range(edad_usuario):
-    print(str(i+1))
-
-
-
-
+for years in range(userAge):
+    print(years+1)

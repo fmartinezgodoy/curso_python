@@ -1,7 +1,4 @@
+word = input("Ingrese una palabra: ")
 
-
-palabra_usuario = input("Ingrese una palabra: ")
-
-for i in range(len(palabra_usuario)):
-    index = len(palabra_usuario) - i
-    print(palabra_usuario[index-1])
+for char in word[::-1]:
+    print(char)

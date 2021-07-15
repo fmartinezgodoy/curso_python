@@ -1,10 +1,5 @@
+num = int(input("Ingrese un número entero: "))
 
-
-
-
-numero_usuario = int(input("Ingrese un número entero: "))
-
-for i in range(numero_usuario+1):
+for i in range(num+1):
     if i%2 != 0:
-        print(str(i), end = ",")
-
+        print(str(i), end = ", ")

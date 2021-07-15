@@ -1,19 +1,7 @@
+num = int(input("Ingrese un número entero: "))
 
-
-
-numero_usuario = int(input("Ingrese un número entero: "))
-
-for i in range(numero_usuario):
+for i in range(num):
+    line = ""
     for e in range(i+1):
-        if e != i:
-            print("*", end ="")
-        else:
-            print("*")
-
-
-
-
-
-
-
-
+        line += '*'
+    print(line)

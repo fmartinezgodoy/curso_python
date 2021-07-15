@@ -1,34 +1,11 @@
+num = int(input("Ingrese un número entero: "))
 
-
-
-numero_usuario = int(input("Ingrese un número entero: "))
-
-check = True
-newcheck = True
+isPrime = True
 i = 2
 
-while check == True:
+while isPrime and i < num:
+    if num % (i) == 0:
+        isPrime = False
+    i += 1
 
-    print(str(i))
-
-
-    if numero_usuario % (i) == 0:
-        print("El número no es primo")
-        check = False
-        newcheck = False
-
-    if i == numero_usuario-1:
-        check = False
-
-    i = i + 1
-
-if newcheck == True:
-    print("El número es primo")
-
-
-
-
-
-
-
-
+print("El número ingresado {}es primo.".format("" if isPrime else "no "))

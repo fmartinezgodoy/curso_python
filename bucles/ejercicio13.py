@@ -1,25 +1,8 @@
+quit = False
 
-
-
-check = True
-
-while check == True:
-
-    usuario = input("Ingrese algo: ")
-
-    if usuario != "salir":
-        print(usuario)
+while not quit:
+    prompt = input("Ingrese algo: ")
+    if (prompt == 'salir'):
+        quit = True
     else:
-        check = False
-
-
-
-
-
-
-
-
-
-
-
-
+        print(prompt)
