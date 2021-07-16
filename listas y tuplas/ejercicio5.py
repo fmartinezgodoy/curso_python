@@ -1,29 +1,8 @@
-
-
-lista = []
+list = []
 for i in range(10):
-    lista.append(i+1)
+    list.append(i+1)
 
-for i in range (10):
+list.reverse()
 
-    if i != 9:
-        print(10-i ,end = ",")
-    else:
-        print(10-i)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for num in list:
+    print("{}".format(num), end=", ")

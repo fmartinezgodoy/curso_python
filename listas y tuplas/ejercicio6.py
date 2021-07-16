@@ -1,28 +1,14 @@
+subjects = ["Matemáticas", "Física", "Química", "Historia", "Lengua"]
+grades = []
 
+for subject in subjects:
+    nota = round(float(input("Ingrese la nota obtenida en la asignatura {}: ".format(subject))),1)
+    grades.append(nota)
 
-asignaturas = ["Matemáticas", "Física", "Química", "Historia", "Lengua"]
-notas = []
+for grade in grades:
+    if grade > 6:
+        i = grades.index(grade)
+        subjects.pop(i)
+        grades.pop(i)
 
-for i in range(len(asignaturas)):
-    nota = round(float(input("Ingrese la nota obtenida en la asignatura {}: ".format(asignaturas[i]))),1)
-
-    notas.append(nota)
-
-i = 0
-
-while True:
-    if i != len(asignaturas):
-        if notas[i] >= 7:
-            asignaturas.pop(i)
-            notas.pop(i)
-            i = i - 1
-        i += 1
-    else:
-        break
-
-
-print("Las asignaturas que debe repetir son: {}".format(asignaturas))
-
-
-
-
+print("Las asignaturas que debe repetir son: {}".format(subjects))

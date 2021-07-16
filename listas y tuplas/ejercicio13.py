@@ -1,32 +1,20 @@
 import math
 
-lista_numeros = input("Ingrese una lista de números separados por coma: ")
+nums = input("Ingrese una lista de números separados por coma: ").split(",")
+sum = 0
+sumsq = 0
+count = len(nums)
 
-lista_diferencia = []
+for num in nums:
+    sum += int(num)
+    sumsq += int(num)**2
 
-lista_numeros = lista_numeros.split(",")
+mean = sum/count
+stdev = (sumsq/count-mean**2)**(1/2)
 
-acumulador = 0
-for i in range(len(lista_numeros)):
-    lista_numeros[i] = float(lista_numeros[i])
-
-media = sum(lista_numeros) / len(lista_numeros)
-
-for i in range(len(lista_numeros)):
-    lista_diferencia.append(lista_numeros[i] - media)
-
-acumulador = 0
-for i in range(len(lista_diferencia)):
-    acumulador += lista_diferencia[i]**2
-
-dev_est = math.sqrt(acumulador/len(lista_numeros))
-
-print("La desviación estandar es {}.".format(round(dev_est,2)))
-
-
-
-
-
-
-
-
+print(
+    "La media es {} y la desviación típica es {}.".format(
+        round(mean, 2), 
+        round(stdev, 2)
+    )
+)

@@ -1,24 +1,21 @@
+abc = []
+for i in range(26):
+    abc.append(
+        chr(97+i)
+    )
 
+abc.insert(15,'ñ')
 
-alfabeto = "abcdefghijklmnñopqrstuvwxyz"
-lista_alfabeto = []
+toDelete=[]
 
-i = 0
+for word in abc:
+    i = abc.index(word)
+    if i % 3 == 0:
+        toDelete.append(i)
 
-while True:
+toDelete.reverse()
 
-    lista_alfabeto.append(alfabeto[i])
+for i in toDelete:
+    abc.pop(i)
 
-    if alfabeto[i] == "l":
-        lista_alfabeto.append("ll")
-
-    i += 1
-
-    if i == len(alfabeto):
-        break
-
-for i in range(len(lista_alfabeto), 1, -1):
-    if i%3 == 0:
-        lista_alfabeto.pop(i-1)
-
-print(lista_alfabeto)
+print(abc)

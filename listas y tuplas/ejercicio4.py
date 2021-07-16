@@ -1,40 +1,10 @@
+numbers = []
 
+for i in range(6):
+    numbers.append(
+        input('Ingrese un número: ')
+    )
 
+numbers.sort()
 
-numeros = []
-
-while True:
-
-    numero = int(input("Ingrese un número ganador de la loteria: "))
-
-    numeros.append(numero)
-
-    check = input("Desea ingresar otro número: ")
-
-    if check == "no":
-        print("")
-        print("Terminando carga de números.")
-        print("")
-        break
-    else:
-        print("")
-        print("Ok!")
-        print("")
-
-numeros.sort()
-
-print(numeros)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(numbers)

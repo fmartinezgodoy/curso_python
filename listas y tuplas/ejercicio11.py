@@ -1,11 +1,8 @@
-
-
-vector_a = [1, 2, 3]
-vector_b = [-1, 0, 2]
-producto_escalar = []
+arrA = [1, 2, 3]
+arrB = [-1, 0, 2]
+scalar = 0
 
 for i in range(3):
-    producto = vector_a[i] * vector_b[i]
-    producto_escalar.append(producto)
+    scalar += arrA[i] * arrB[i]
 
-print(producto_escalar)
+print(scalar)

@@ -1,14 +1,3 @@
+courses = ["Matemática", "Física", "Química", "Historia", "Lengua"]
 
-asignaturas = ["Matemática", "Física", "Historia", "Química", "Lengua"]
-
-print(asignaturas)
-
-
-
-
-
-
-
-
-
-
+print(courses)
