@@ -1,10 +1,18 @@
-datos_usuario = {"nombre" : "n/a", "edad" : "n/a", "direccion" : "n/a", "numero" : "n/a"}
+user = {}
 
-datos_usuario["nombre"] = input("Ingrese su nombre: ")
-datos_usuario["edad"] = input("Ingrese su edad: ")
-datos_usuario["direccion"] = input("Ingrese su dirección: ")
-datos_usuario["numero"] = input("Ingrese su número de teléfono: ")
-print("{} tiene {} años, vive en {} "
-      "y su número de teléfono es {}."
-      .format(datos_usuario.get("nombre"), datos_usuario.get("edad"),
-              datos_usuario.get("direccion"), datos_usuario.get("numero")))
+user["name"] = input("Ingrese su nombre: ")
+user["age"] = input("Ingrese su edad: ")
+user["address"] = input("Ingrese su dirección: ")
+user["phone"] = input("Ingrese su número de teléfono: ")
+
+message = (
+      "{} tiene {} años, vive en {} y su número de teléfono es {}."
+            .format(
+                  user.get("name"), 
+                  user.get("age"),
+                  user.get("address"), 
+                  user.get("phone")
+            )
+)
+
+print(message)

@@ -1,7 +1,4 @@
-divisas = {'Euro':'€', 'Dollar':'$', 'Yen':'¥'}
-divisa_usuario = input("Ingrese una divisa: ")
+badge = {'Euro':'€', 'Dollar':'$', 'Yen':'¥'}
+selected = input("Ingrese una divisa: ").capitalize()
 
-if divisa_usuario in divisas:
-    print(divisas.get(divisa_usuario))
-else:
-    print("No esta disponible")
+print(badge.get(selected) if selected in badge else "No está disponible")

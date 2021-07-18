@@ -1,10 +1,13 @@
+user = {}
+quit = False
 
-informacion = {}
+while not quit:
+    key = input("Ingrese una característica: ")
+    value = input("Ingrese el valor de esa característica: ")
 
-while True:
-    informacion.setdefault(input("Ingrese una característica: "), input("Ingrese el valor de esa característica: "))
-    print(informacion)
-    if input("Ingresar otra? y/n:") == "n":
-        break
+    user[key] = value
 
-
+    print(user)
+    
+    if input("Ingresar otra? [s/n]: ") != "s":
+        quite = True

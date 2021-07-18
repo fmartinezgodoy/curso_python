@@ -1,22 +1,19 @@
-lista_compra = {}
-precio_total = 0
+cart = {}
+quit = False
+total = 0
 
+while not quit:
+    prod = input("Articulo: ")
+    price = input("Precio: ")
 
-while True:
-    lista_compra.setdefault(input("Articulo: "),int(input("Precio: ")))
+    cart[prod] = price
+    total += int(price)
 
+    if input("Otro articulo? [s/n]: ") != "s":
+        quit = True
 
-    if input("Otro articulo? y/n: ") == "n":
-        break
+for prod, price in cart.items():
+    print("{:16}\t{}".format(prod, price))
 
-for articulo,precio in lista_compra.items():
-    print("{:16}".format(articulo),end ="")
-    print("{:>16}".format(precio))
-    precio_total += precio
-
-print("{:16}".format("..."),end ="")
-print("{:>16}".format("..."))
-
-print("{:16}".format("Total"),end ="")
-print("{:>16}".format(precio_total))
-
+print("{:16}\t{}".format("...", "..."))
+print("{:16}\t{}".format("Total",total))

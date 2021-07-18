@@ -1,16 +1,18 @@
+userInput = input('Ingrese los pares <palabra>:<traducción> separados por comas: ').split(",")
 
-traductor = {}
+dict = {}
 
-while True:
-    par = input("Ingrese par <palabra>:<traducción>: ").split(":")
-    traductor.setdefault(par[0], par[1])
+for pair in userInput:
+    [spanish, english] = pair.split(':')
+    dict[spanish] = english
 
-    if input("Ingresar otra palabra? y/n: ") == "n":
-        break
+phrase = input('Ingrese una frase en español: ')
 
-frase = input("Introduzca una frase: ")
-frase = frase.split(" ")
-
-for palabra in frase:
-    print(traductor.get(palabra, "#"),end=" ")
-
+traduction = ""
+for word in phrase.split():
+    if word in dict:
+        traduction += "{} ".format(dict[word])
+    else:
+        traduction += "[] "
+        
+print(traduction)

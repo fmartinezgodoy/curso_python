@@ -1,10 +1,11 @@
-precios = {"Plátano" : 1.35, "Manzana" : 0.8, "Pera" : 0.85, "Naranja" : 0.7}
+prices = {"Plátano" : 1.35, "Manzana" : 0.8, "Pera" : 0.85, "Naranja" : 0.7}
 
-fruta = input("Ingrese una fruta: ")
-cantidad = float(input("Ingrese la cantidad en kilos: "))
+selected = input("Ingrese una fruta: ")
 
-try:
-    costo = precios.get(fruta) * cantidad
-    print("Debe abonar ${}".format(costo))
-except:
-    print("La fruta ingresada no esta disponible.")
+if selected in prices:
+    qty = float(input("Ingrese la cantidad en kilos: "))
+    message = "Debe abonar ${}".format(round(prices.get(selected)*qty, 2))
+else:
+    message = "La fruta no está disponible."
+
+print(message)

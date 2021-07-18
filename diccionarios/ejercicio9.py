@@ -1,27 +1,29 @@
+bills = {}
+amountPaid = 0
+debt = 0
+quit = False
 
-facturas = {}
-cantidad_cobrada = 0
-deuda_total = 0
+while not quit:
+    option = int(input("Desea añadir una nueva factura, pagar una existente "
+             "o finalizar el proceso? [1/2/3]: "))
 
-while True:
-    opcion = int(input("Desea añadir una nueva factura, pagar una existente "
-             "o finalizar el proceso? (ingrese 1, 2 o 3):"))
+    if option == 1:
+        num = input("Ingrese el número de la factura: ")
+        cost = float(input("Ingrese el coste de la factura: $"))
+        bills[num] = cost
+        debt += cost
 
-    if opcion == 1:
-        facturas.setdefault(input("Ingrese el número de la factura: "),
-                                  float(input("Ingrese el coste de la factura: ")))
+    elif option == 2:
+        toPay = input("Ingrese el número de la factura a pagar: ")
+        if toPay in bills:
+            cost = bills.pop(toPay)
+            amountPaid += cost
+            debt -= cost
+        else:
+            print("El número ingresado no corresponde a una factura.")
 
-    elif opcion == 2:
-        cantidad_cobrada += facturas.pop(input("Ingrese el número de la factura a pagar: "))
-        
-    elif opcion == 3:
-        break
+    elif option == 3:
+        quit = True
 
-    print("Se han cobrado ${} hasta el momento...".format(cantidad_cobrada))
-
-    for factura,deuda in facturas.items():
-        deuda_total += deuda
-
-    print("Se debe un total de ${}".format(deuda_total))
-
-    deuda_total = 0
+    print("Se han cobrado ${} hasta el momento...".format(amountPaid))
+    print("Se debe un total de ${}".format(debt))

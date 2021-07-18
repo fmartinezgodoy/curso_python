@@ -1,42 +1,56 @@
 clientes = {}
+quit = False
 
-while True:
-    opcion_menu = int((input("Elija una de las siguientes opciones...\n"
-                             "(1) Añadir cliente,\n"
-                             "(2) Eliminar cliente,\n"
-                             "(3) Mostrar cliente,\n"
-                             "(4) Listar todos los clientes,\n"
-                             "(5) Listar clientes preferentes,\n"
-                             "(6) Terminar \n"
+while not quit:
+    option = int((input("Elija una de las siguientes opciones...\n"
+                             "\t(1) Añadir cliente,\n"
+                             "\t(2) Eliminar cliente,\n"
+                             "\t(3) Mostrar cliente,\n"
+                             "\t(4) Listar todos los clientes,\n"
+                             "\t(5) Listar clientes preferentes,\n"
+                             "\t(6) Terminar \n"
                              "Ingrese elección: ")))
 
-    if opcion_menu == 1:
-        clientes.setdefault(input("Ingrese NIF del cliente: "),
-                            {"nombre" : input("Ingrese nombre del cliente: "),
-                             "dirección" : input("Ingrese dirección del cliente: "),
-                             "teléfono" : input("Ingrese teléfono del cliente: "),
-                             "correo" : input("Ingrese correo del cliente: "),
-                             "preferente" : bool(input("Cliente preferente? (True/False)"))})
+    if option == 1:
+        nif = input("Ingrese NIF del cliente: ")
+        clientes[nif] = {
+                "Nombre" : input("Ingrese nombre del cliente: "),
+                "Dirección" : input("Ingrese dirección del cliente: "),
+                "Teléfono" : input("Ingrese teléfono del cliente: "),
+                "Email" : input("Ingrese correo del cliente: "),
+                "Preferente" : input("Cliente preferente? (s/n): ") == 's',
+            }
 
-    elif opcion_menu == 2:
-        clientes.pop(input("Ingrese NIF del cliente: "))
+    elif option == 2 or option == 3:
+        nif = input("Ingrese NIF del cliente: ")
+        if nif in clientes:
+            if option == 2:
+                message= "Eliminado correctamente."
+            elif option == 3:
+                details = str(clientes[nif])
+                details = details[1:len(details)-1]
+                message = ""
+                for word in details.split(', '):
+                    message += "{}\n".format(word)
+            else:
+                message = "La opción ingresada no es correcta."
+        else:
+            message = "El NIF ingresado no es correcto."
+        print(message)
 
-    elif opcion_menu == 3:
-        print(clientes[input("Ingrese NIF del cliente: ")])
+    elif option == 4 or option == 5:
+        message = ""
+        for nif, data in clientes.items():
+            if option == 4:
+                message += "{:16}\t{}\n".format(nif, data["Nombre"])
+            elif option == 5:
+                if data["Preferente"] == True:
+                    message += "{:16}\t{}\n".format(nif, data["Nombre"])
+            else:
+                message = "La opción ingresada no es correcta."
+        print(message)
 
-    elif opcion_menu == 4:
-        for NIF, info in clientes.items():
-            print(NIF, info["nombre"])
-
-    elif opcion_menu == 5:
-        for NIF, info in clientes.items():
-            if info["preferente"] == True:
-                print(NIF, info["nombre"])
-
-    elif opcion_menu == 6:
-        break
-
-    print("")
-    input("Presione enter para continuar")
-    print("")
-
+    elif option == 6:
+        quit = True
+    
+    input("\nPresione enter para continuar...\n")
